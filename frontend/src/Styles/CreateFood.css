@@ -1,0 +1,94 @@
+.create-food-container {
+  max-width: 420px;
+  margin: 32px auto;
+  padding: 24px 16px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+}
+
+.create-food-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.create-food-form h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  color: #ff6f00;
+  margin-bottom: 8px;
+}
+
+.create-food-form label {
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.create-food-form input[type="text"],
+.create-food-form textarea,
+.create-food-form input[type="file"] {
+  padding: 8px;
+  border: 1px solid #ececec;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fafafa;
+  margin-top: 2px;
+}
+
+.video-preview {
+  width: 100%;
+  max-width: 320px;
+  height: 250px;
+  border-radius: 8px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  margin: 0 auto;
+}
+
+.video-preview-el {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: #000;
+  object-fit: cover;
+}
+
+.create-food-form textarea {
+  resize: vertical;
+}
+
+.create-food-form button {
+  background: #ff6f00;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+
+.create-food-form button:hover {
+  background: #ff9000;
+}
+
+@media (max-width: 600px) {
+  .create-food-container {
+    max-width: 98vw;
+    padding: 12px 4px;
+  }
+  .create-food-form {
+    gap: 12px;
+  }
+  .create-food-form h2 {
+    font-size: 1.2rem;
+  }
+}

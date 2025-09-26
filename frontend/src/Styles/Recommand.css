@@ -1,0 +1,120 @@
+.recommand-container {
+  width: 100%;
+  padding: 2rem 0;
+  scroll-behavior: smooth;
+}
+
+.recommand-container .heading {
+  color: #131313;
+  text-align: center;
+  margin: auto;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.recommand-page {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: auto;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.recommand-feed {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.recommand {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+}
+
+.recommand-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px 18px 0 0;
+  background: #222;
+}
+.recommnad-btn {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem 0 0 0;
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .recommand-container .heading h2 {
+    font-size: 2rem;
+  }
+
+  .recommand {
+    min-height: 100%;
+  }
+  .recommand-feed {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .recommand-video {
+    height: 100%;
+  }
+}
+
+@media (min-width: 769px) {
+  .recommand-container .heading h2 {
+    font-size: 2rem;
+  }
+
+  .recommand {
+    min-height: 100%;
+  }
+  .recommand-feed {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .recommand-video {
+    height: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .recommand-container .heading h2 {
+    font-size: 1.5rem;
+  }
+
+  .recommand {
+    min-height: 100%;
+  }
+  .recommand-feed {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .recommand-video {
+    height: 100%;
+  }
+}
+
+.recommand-page::-webkit-scrollbar {
+  width: 8px;
+}
+
+.recommand-page::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.recommand-page::-webkit-scrollbar-track {
+  background-color: transparent;
+}

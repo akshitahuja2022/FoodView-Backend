@@ -1,0 +1,135 @@
+.reels-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #000;
+  overflow-y: auto;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+.reels-feed {
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+  align-items: center;
+}
+
+.reel {
+  position: relative;
+  background: #000;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+  transition: transform 0.2s ease;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+.reel-video {
+  width: 100%;
+  /* height: 100vh; */
+  object-fit: cover;
+  background: #222;
+}
+.reel-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.reel-name {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #fff;
+}
+
+.reel-description {
+  font-size: 1.1rem;
+  color: #eee;
+}
+
+.reel-btn {
+  align-self: flex-start;
+  background-color: #ff4500;
+  color: #fff;
+  padding: 10px 22px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.reel-btn:hover {
+  background-color: #e03e00;
+}
+@media (min-width: 768px) {
+  .reels-feed {
+    margin: 0 auto;
+  }
+  .reel {
+    width: 500px;
+    min-height: 100vh;
+  }
+  .reel-video {
+    height: 100vh;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .reels-feed {
+    margin: 0 auto;
+  }
+  .reel {
+    min-height: 100vh;
+  }
+  .reel-video {
+    width: 70vw;
+    height: 100vh;
+  }
+  .reel-content {
+    bottom: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .reels-feed {
+    width: 100vw;
+    padding: 0;
+  }
+  .reel {
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
+  .reel-video {
+    height: 100vh;
+  }
+  .reel-content {
+    bottom: 40px;
+  }
+}
+
+.reels-page::-webkit-scrollbar {
+  width: 8px;
+}
+
+.reels-page::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.reels-page::-webkit-scrollbar-track {
+  background-color: transparent;
+}
