@@ -1,20 +1,21 @@
-import ImageKit from "imagekit";
-import dotenv from "dotenv";
-dotenv.config();
+import cloudinary from "./cloudinary.config.js";
 
-const imagekit = new ImageKit({
-  publicKey: process.env.IMAGEKIT_PUBLIC_KEY,
-  privateKey: process.env.IMAGEKIT_PRIVATE_KEY,
-  urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT,
-});
+const uploadfile = async (fileBuffer, publicId) => {
+  return new Promise((resolve, reject) => {
+    cloudinary.uploader
+      .upload_stream(
+        {
+          resource_type: "video",
+          public_id: publicId,
+          folder: "foodVideos",
+        },
+        (error, result) => {
+          if (error) return reject(error);
+          resolve(result);
+        }
+      )
+      .end(fileBuffer);
+  });
+};
 
-const uploadfile = async(file, fileName)=>{
-    const result = await imagekit.upload({
-        file:file,
-        fileName: fileName
-    })
-
-    return result;
-
-}
 export default uploadfile;

@@ -10,7 +10,7 @@ const upload = multer({
 
 const foodRouter = express.Router();
 
-// Post /item/food [Protectd]
+// Post /item/food
 foodRouter.post(
   "/food",
   authMiddleware.authFoodPartnerMiddleware,
@@ -18,19 +18,11 @@ foodRouter.post(
   foodController.createFoodItem
 );
 
-// Get /item/getFood [protected]
-foodRouter.get(
-  "/getFood",
-  authMiddleware.authUserMiddleware,
-  foodController.getFoodItem
-);
+// Get /item/getFood
+foodRouter.get("/getFood", foodController.getFoodItem);
 
 // Get /item/food-partner/:id
-foodRouter.get(
-  "/food-partner/:id",
-  authMiddleware.authUserMiddleware,
-  getFoodPartnerById
-);
+foodRouter.get("/food-partner/:id", getFoodPartnerById);
 // Get /item/delete/:id
 foodRouter.get("/delete/:id", foodController.deleteFoodItem);
 export default foodRouter;
