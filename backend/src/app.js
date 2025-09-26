@@ -10,7 +10,11 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: [
+      "http://localhost:3000", // local dev
+      "https://food-view-6moc.onrender.com/", // deployed frontend
+    ],
+
     credentials: true,
   })
 );
