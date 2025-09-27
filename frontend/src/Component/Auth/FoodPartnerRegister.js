@@ -20,7 +20,7 @@ function FoodPartnerRegister() {
     setPhone,
     setIsPartner,
     setPartner,
-    setPartnerId
+    setPartnerId,
   } = useContext(AuthContext);
 
   const handleSubmit = async (e) => {
@@ -48,10 +48,10 @@ function FoodPartnerRegister() {
       const { success, message } = result;
       if (success) {
         handleSuccess(message);
-        setTimeout(() => navigate("/crate-food"), 2000);
+        setTimeout(() => navigate("/create-food"), 2000);
         setIsPartner(true);
         setPartner(result);
-         setPartnerId(result.foodPartner.id);
+        setPartnerId(result.foodPartner.id);
       } else {
         handleError(message);
       }
