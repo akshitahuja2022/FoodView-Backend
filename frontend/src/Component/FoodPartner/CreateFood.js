@@ -58,12 +58,15 @@ const CreateFood = () => {
     formData.append("name", name);
     formData.append("description", description);
     formData.append("video", videoFile);
-
+    const token = localStorage.getItem("partnerToken");
     const response = await axios.post(
       `${process.env.REACT_APP_BACKEND_URL}/item/food`,
       formData,
       {
-        headers: { "Content-Type": "multipart/form-data" },
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+        },
         withCredentials: true,
       }
     );
