@@ -19,7 +19,11 @@ foodRouter.post(
 );
 
 // Get /item/getFood
-foodRouter.get("/getFood", foodController.getFoodItem);
+foodRouter.get(
+  "/getFood",
+  authMiddleware.authFoodPartnerMiddleware,
+  foodController.getFoodItem
+);
 
 // Get /item/food-partner/:id
 foodRouter.get("/food-partner/:id", getFoodPartnerById);
