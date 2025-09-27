@@ -34,7 +34,6 @@ function UserLogin() {
         handleSuccess(result.message);
         setTimeout(() => navigate("/"));
         setIsUser(true);
-        console.log(result);
         setUser(result.user);
       } else {
         handleError(result.message);
@@ -71,7 +70,9 @@ function UserLogin() {
       </form>
       <div className="auth-form-footer">
         Don't have an account?
-        <a href="/user/register">Register</a>
+        <button type="button" onClick={() => navigate("/user/register")}>
+          register
+        </button>
       </div>
     </div>
   );

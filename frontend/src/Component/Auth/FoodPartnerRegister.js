@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "../../Styles/AuthForms.css";
 import { handleError, handleSuccess } from "../../Component/Notification.js";
 import { AuthContext } from "../../Context/authContext.js";
-import { useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 function FoodPartnerRegister() {
   const navigate = useNavigate();
@@ -113,7 +113,9 @@ function FoodPartnerRegister() {
       </form>
       <div className="auth-form-footer">
         Already a partner?
-        <a href="/food-partner/login">Login</a>
+        <button type="button" onClick={() => navigate("/food-partner/login")}>
+          login
+        </button>
       </div>
     </div>
   );

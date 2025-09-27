@@ -78,7 +78,12 @@ function FoodPartnerLogin() {
       </form>
       <div className="auth-form-footer">
         New partner?
-        <a href="/food-partner/register">Register</a>
+        <button
+          type="button"
+          onClick={() => navigate("/food-partner/register")}
+        >
+          register
+        </button>
       </div>
     </div>
   );

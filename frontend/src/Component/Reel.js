@@ -37,9 +37,7 @@ const Reel = () => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_BACKEND_URL}/item/getFood`, {
-        withCredentials: true,
-      })
+      .get(`${process.env.REACT_APP_BACKEND_URL}/item/getFood`)
       .then((response) => {
         if (response.data.success) {
           setItems(response.data.foodItems);

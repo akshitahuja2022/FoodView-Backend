@@ -42,7 +42,6 @@ function UserRegister() {
         handleSuccess(result.message);
         setTimeout(() => navigate("/"), 2000);
         setIsUser(true);
-
         setUser(result.user);
       } else {
         handleError(result.message);
@@ -88,7 +87,9 @@ function UserRegister() {
       </form>
       <div className="auth-form-footer">
         Already have an account?
-        <a href="/user/login">Login</a>
+        <button type="button" onClick={() => navigate("/user/login")}>
+          login
+        </button>
       </div>
     </div>
   );

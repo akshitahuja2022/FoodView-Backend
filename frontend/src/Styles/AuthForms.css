@@ -70,10 +70,14 @@
   color: #555;
 }
 
-.auth-form-footer a {
+.auth-form-footer button {
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: none;
+  background: none;
   color: #ff6f00;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   margin-left: 4px;
 }
 
