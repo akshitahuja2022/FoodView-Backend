@@ -13,8 +13,8 @@ const foodRouter = express.Router();
 // Post /item/food
 foodRouter.post(
   "/food",
-  // authMiddleware.authFoodPartnerMiddleware,
   upload.single("video"),
+  authMiddleware.authFoodPartnerMiddleware,
   foodController.createFoodItem
 );
 
