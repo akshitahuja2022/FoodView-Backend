@@ -21,7 +21,7 @@ foodRouter.post(
 // Get /item/getFood
 foodRouter.get(
   "/getFood",
-  authMiddleware.authFoodPartnerMiddleware,
+  authMiddleware.authUserMiddleware,
   foodController.getFoodItem
 );
 
