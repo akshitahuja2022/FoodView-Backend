@@ -37,7 +37,11 @@ const registerUser = async (req, res) => {
       { expiresIn: process.env.JWT_EXPIRES || "1d" }
     );
 
-    res.cookie("token", token);
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "None",
+    });
 
     res.status(200).json({
       message: "User registered successfully",
@@ -85,7 +89,11 @@ const loginUser = async (req, res) => {
       { expiresIn: process.env.JWT_EXPIRES || "1d" }
     );
 
-    res.cookie("token", token);
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "None",
+    });
 
     res.status(200).json({
       message: "Login Successfull",
@@ -146,7 +154,11 @@ const foodPartnerRegister = async (req, res) => {
       { expiresIn: process.env.JWT_EXPIRES || "1d" }
     );
 
-    res.cookie("token", token);
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "None",
+    });
 
     res.status(200).json({
       message: "FoodPartnerUser register successfully",
@@ -194,7 +206,11 @@ const foodPartnerLogin = async (req, res) => {
       { expiresIn: process.env.JWT_EXPIRES || "1d" }
     );
 
-    res.cookie("token", token);
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "None",
+    });
 
     res.status(200).json({
       message: "Login Successfull",
