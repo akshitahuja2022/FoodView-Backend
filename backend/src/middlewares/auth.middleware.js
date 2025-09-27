@@ -6,6 +6,8 @@ dotenv.config();
 
 const authFoodPartnerMiddleware = async (req, res, next) => {
   const token = req.cookies.partnerToken;
+  console.log("Cookies received:", req.cookies);
+  console.log(req.cookies.partnerToken);
 
   if (!token) {
     return res

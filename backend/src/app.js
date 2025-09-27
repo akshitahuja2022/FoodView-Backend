@@ -14,6 +14,7 @@ app.use(
       "http://localhost:3000", // local dev
       "https://food-view-6moc.onrender.com", // deployed frontend
     ],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
   })
 );
