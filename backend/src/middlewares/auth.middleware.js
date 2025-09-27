@@ -5,7 +5,7 @@ import UserModel from "../models/user.model.js";
 dotenv.config();
 
 const authFoodPartnerMiddleware = async (req, res, next) => {
-  const token = req.cookies.token;
+  const token = req.cookies.partnerToken;
 
   if (!token) {
     return res
@@ -29,12 +29,12 @@ const authFoodPartnerMiddleware = async (req, res, next) => {
 };
 
 const authUserMiddleware = async (req, res, next) => {
-  const token = req.cookies.token;
+  const token = req.cookies.userToken;
 
   if (!token) {
-   return res
+    return res
       .status(401)
-      .json({ message: "Please register and login fitst", success: false });
+      .json({ message: "Please register and login first", success: false });
   }
 
   try {

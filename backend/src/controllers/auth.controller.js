@@ -28,7 +28,7 @@ const registerUser = async (req, res) => {
     await user.save();
 
     // Generate JWT Token
-    const token = jwt.sign(
+    const userToken = jwt.sign(
       {
         id: user._id,
         email: user.email,
@@ -39,7 +39,7 @@ const registerUser = async (req, res) => {
 
     const isProduction = process.env.NODE_ENV === "production";
 
-    res.cookie("token", token, {
+    res.cookie("userToken", userToken, {
       httpOnly: true,
       secure: isProduction,
       sameSite: isProduction ? "None" : "Lax",
@@ -83,7 +83,7 @@ const loginUser = async (req, res) => {
         .json({ message: "Invalid email or password", success: false });
     }
 
-    const token = jwt.sign(
+    const userToken = jwt.sign(
       {
         id: user._id,
         email: user.email,
@@ -94,7 +94,7 @@ const loginUser = async (req, res) => {
 
     const isProduction = process.env.NODE_ENV === "production";
 
-    res.cookie("token", token, {
+    res.cookie("userToken", userToken, {
       httpOnly: true,
       secure: isProduction,
       sameSite: isProduction ? "None" : "Lax",
@@ -119,7 +119,7 @@ const loginUser = async (req, res) => {
 
 const logout = async (req, res) => {
   try {
-    res.clearCookie("token");
+    res.clearCookie("userToken");
     res.status(200).json({ message: "Logout Successfully", success: true });
   } catch (error) {
     res
@@ -154,14 +154,14 @@ const foodPartnerRegister = async (req, res) => {
 
     await foodPartnerUser.save();
 
-    const token = jwt.sign(
+    const partnerToken = jwt.sign(
       { id: foodPartnerUser._id, email: foodPartnerUser.email },
       process.env.JWT_SECRET,
       { expiresIn: process.env.JWT_EXPIRES || "1d" }
     );
     const isProduction = process.env.NODE_ENV === "production";
 
-    res.cookie("token", token, {
+    res.cookie("partnerToken", partnerToken, {
       httpOnly: true,
       secure: isProduction,
       sameSite: isProduction ? "None" : "Lax",
@@ -205,7 +205,7 @@ const foodPartnerLogin = async (req, res) => {
         .json({ message: "Invalid email or password", success: false });
     }
 
-    const token = jwt.sign(
+    const partnerToken = jwt.sign(
       {
         id: user._id,
         email: user.email,
@@ -215,7 +215,7 @@ const foodPartnerLogin = async (req, res) => {
     );
     const isProduction = process.env.NODE_ENV === "production";
 
-    res.cookie("token", token, {
+    res.cookie("partnerToken", partnerToken, {
       httpOnly: true,
       secure: isProduction,
       sameSite: isProduction ? "None" : "Lax",
@@ -242,7 +242,7 @@ const foodPartnerLogin = async (req, res) => {
 
 const foodPartnerLogout = async (req, res) => {
   try {
-    res.clearCookie("token");
+    res.clearCookie("partnerToken");
     res.status(200).json({ message: "Logout Successfully", success: true });
   } catch (error) {
     res
