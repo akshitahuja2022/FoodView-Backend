@@ -28,7 +28,6 @@ function UserLogin() {
           body: JSON.stringify(payload),
         }
       );
-      console.log(process.env.REACT_APP_BACKEND_URL);
       const result = await response.json();
       if (result.success) {
         handleSuccess(result.message);
