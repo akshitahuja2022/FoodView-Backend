@@ -42,7 +42,7 @@ function UserRegister() {
         handleSuccess(result.message);
         setTimeout(() => navigate("/"), 2000);
         setIsUser(true);
-        
+
         setUser(result.user);
       } else {
         handleError(result.message);
