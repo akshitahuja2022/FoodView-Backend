@@ -38,7 +38,6 @@ function FoodPartnerLogin() {
       const result = await response.json();
       const { success, message } = result;
       if (success) {
-        console.log(process.env.REACT_APP_BACKEND_URL);
         handleSuccess(message);
         setTimeout(() => navigate("/create-food"), 2000);
         setIsPartner(true);

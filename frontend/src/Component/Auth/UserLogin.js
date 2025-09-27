@@ -34,6 +34,7 @@ function UserLogin() {
         handleSuccess(result.message);
         setTimeout(() => navigate("/"));
         setIsUser(true);
+        console.log(result);
         setUser(result.user);
       } else {
         handleError(result.message);
