@@ -37,12 +37,12 @@ const registerUser = async (req, res) => {
       { expiresIn: process.env.JWT_EXPIRES || "1d" }
     );
 
-    // const isProduction = process.env.NODE_ENV === "production";
+    const isProduction = process.env.NODE_ENV === "production";
 
     res.cookie("userToken", userToken, {
       httpOnly: true,
-      secure: true,
-      sameSite: "None",
+      secure: isProduction,
+      sameSite: isProduction ? "None" : "Lax",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
@@ -92,12 +92,12 @@ const loginUser = async (req, res) => {
       { expiresIn: process.env.JWT_EXPIRES || "1d" }
     );
 
-    // const isProduction = process.env.NODE_ENV === "production";
+    const isProduction = process.env.NODE_ENV === "production";
 
     res.cookie("userToken", userToken, {
       httpOnly: true,
-      secure: true,
-      sameSite: "None",
+      secure: isProduction,
+      sameSite: isProduction ? "None" : "Lax",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
@@ -159,12 +159,12 @@ const foodPartnerRegister = async (req, res) => {
       process.env.JWT_SECRET,
       { expiresIn: process.env.JWT_EXPIRES || "1d" }
     );
-    // const isProduction = process.env.NODE_ENV === "production";
+    const isProduction = process.env.NODE_ENV === "production";
 
     res.cookie("partnerToken", partnerToken, {
       httpOnly: true,
-      secure: true,
-      sameSite: "None",
+      secure: isProduction,
+      sameSite: isProduction ? "None" : "Lax",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
@@ -213,12 +213,12 @@ const foodPartnerLogin = async (req, res) => {
       process.env.JWT_SECRET,
       { expiresIn: process.env.JWT_EXPIRES || "1d" }
     );
-    // const isProduction = process.env.NODE_ENV === "production";
+    const isProduction = process.env.NODE_ENV === "production";
 
     res.cookie("partnerToken", partnerToken, {
       httpOnly: true,
-      secure: true,
-      sameSite: "None",
+      secure: isProduction,
+      sameSite: isProduction ? "None" : "Lax",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
