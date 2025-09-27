@@ -42,7 +42,7 @@ const registerUser = async (req, res) => {
     res.cookie("userToken", userToken, {
       httpOnly: true,
       secure: isProduction,
-      sameSite: isProduction ? "None" : "Lax",
+      sameSite: "None",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
@@ -97,7 +97,7 @@ const loginUser = async (req, res) => {
     res.cookie("userToken", userToken, {
       httpOnly: true,
       secure: isProduction,
-      sameSite: isProduction ? "None" : "Lax",
+      sameSite: "None",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
@@ -164,7 +164,7 @@ const foodPartnerRegister = async (req, res) => {
     res.cookie("partnerToken", partnerToken, {
       httpOnly: true,
       secure: isProduction,
-      sameSite: isProduction ? "None" : "Lax",
+      sameSite: "None",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
@@ -218,7 +218,7 @@ const foodPartnerLogin = async (req, res) => {
     res.cookie("partnerToken", partnerToken, {
       httpOnly: true,
       secure: isProduction,
-      sameSite: isProduction ? "None" : "Lax",
+      sameSite: "None",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
