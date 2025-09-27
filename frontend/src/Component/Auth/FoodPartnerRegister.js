@@ -50,7 +50,7 @@ function FoodPartnerRegister() {
         handleSuccess(message);
         setTimeout(() => navigate("/create-food"), 2000);
         setIsPartner(true);
-        setPartner(result);
+        setPartner(result.foodPartnerUser);
         setPartnerId(result.foodPartnerUser.id);
       } else {
         handleError(message);
