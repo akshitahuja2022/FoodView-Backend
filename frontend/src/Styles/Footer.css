@@ -78,7 +78,7 @@
 
 @media (max-width: 768px) {
   .footer {
-    height: 57vh;
+    min-height: max-content;
   }
   .footer-main {
     flex-direction: column;

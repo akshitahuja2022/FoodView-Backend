@@ -49,6 +49,7 @@
   border-radius: 18px 18px 0 0;
   background: #222;
   scroll-behavior: smooth;
+  will-change: transform;
 }
 .recommnad-btn {
   grid-column: 1 / -1;
@@ -58,6 +59,9 @@
   margin: 0.5rem 0 0 0;
 }
 @media (min-width: 481px) and (max-width: 768px) {
+  .recommand-container {
+    scroll-behavior: smooth;
+  }
   .recommand-container .heading h2 {
     font-size: 2rem;
   }
@@ -75,6 +79,9 @@
 }
 
 @media (min-width: 769px) {
+  .recommand {
+    scroll-behavior: smooth;
+  }
   .recommand-container .heading h2 {
     font-size: 2rem;
   }
@@ -92,6 +99,9 @@
 }
 
 @media (max-width: 480px) {
+  .recommand-container {
+    scroll-behavior: smooth;
+  }
   .recommand-container .heading h2 {
     font-size: 1.5rem;
   }

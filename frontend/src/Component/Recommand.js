@@ -20,6 +20,10 @@ function Recommand() {
           const video = entry.target;
           if (!(video instanceof HTMLVideoElement)) return;
           if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
+            videoRefs.current.forEach((vid) => {
+              if (vid !== video) vid.pause();
+            });
+
             if (!video.src && video.dataset.src) {
               video.src = video.dataset.src;
             }
@@ -81,8 +85,9 @@ function Recommand() {
                   ref={setVideoRef(item._id)}
                   className="recommand-video"
                   data-src={item.video}
-                  preload="none"
+                  preload="metadata"
                   muted
+                  loading="lazy"
                   playsInline
                   loop
                 />
