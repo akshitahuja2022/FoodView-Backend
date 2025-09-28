@@ -90,6 +90,8 @@ function Recommand() {
                   loading="lazy"
                   playsInline
                   loop
+                  onMouseEnter={(e) => e.currentTarget.play()}
+                  onMouseLeave={(e) => e.currentTarget.pause()}
                 />
               </section>
             ))}
