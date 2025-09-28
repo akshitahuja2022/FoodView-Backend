@@ -11,6 +11,7 @@ function Recommand() {
   const [items, setItems] = useState([]);
 
   const { setIsNavbar } = useContext(AuthContext);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -46,8 +47,14 @@ function Recommand() {
         } else {
           handleError(response.data.message);
         }
+      })
+      .catch(() => {
+        handleError("Failed to fetch food items");
+      })
+      .finally(() => {
+        setLoading(false);
       });
-  });
+  }, []);
 
   const setVideoRef = (id) => (el) => {
     if (!el) {
@@ -63,32 +70,36 @@ function Recommand() {
         <h2>Recommanded For you</h2>
       </div>
 
-      <div className="recommand-page">
-        <div className="recommand-feed" role="list">
-          {items.map((item) => (
-            <section key={item._id} className="recommand" role="listitem">
-              <video
-                ref={setVideoRef(item._id)}
-                className="recommand-video"
-                data-src={item.video}
-                preload="none"
-                muted
-                playsInline
-                loop
-              />
-            </section>
-          ))}
-          <div
-            onClick={() => {
-              navigate("/reel");
-              setIsNavbar(true);
-            }}
-            className="recommnad-btn"
-          >
-            <button className="btn">Watch More</button>
+      {loading ? (
+        <div className="loader"></div>
+      ) : (
+        <div className="recommand-page">
+          <div className="recommand-feed" role="list">
+            {items.map((item) => (
+              <section key={item._id} className="recommand" role="listitem">
+                <video
+                  ref={setVideoRef(item._id)}
+                  className="recommand-video"
+                  data-src={item.video}
+                  preload="none"
+                  muted
+                  playsInline
+                  loop
+                />
+              </section>
+            ))}
+            <div
+              onClick={() => {
+                navigate("/reel");
+                setIsNavbar(true);
+              }}
+              className="recommnad-btn"
+            >
+              <button className="btn">Watch More</button>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
