@@ -75,6 +75,9 @@ const CreateFood = () => {
     if (success) {
       handleSuccess(message);
       navigate("/");
+      setName("");
+      setDescription("");
+      setVideoFile("");
     } else {
       handleError(error);
     }
