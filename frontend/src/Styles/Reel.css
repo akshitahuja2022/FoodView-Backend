@@ -1,35 +1,30 @@
 .reels-page {
+  height: 100vh;
+  width: 100vw;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  background: #000;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* min-height: 100vh; */
-  background: #000;
-  overflow-y: auto;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-  height: 100vh;
 }
 
 .reels-feed {
   display: flex;
   flex-direction: column;
-  min-width: 100%;
+  width: 100%;
   align-items: center;
 }
 
 .reel {
   position: relative;
-  background: #000;
-  overflow: hidden;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
-  display: flex;
-  flex-direction: column;
+  width: 100vw;
   height: 100vh;
-  transition: transform 0.2s ease;
-  overflow: hidden;
+  flex-shrink: 0;
   scroll-snap-align: start;
+  overflow: hidden;
+  background: #000;
 }
 
 .reel-video {
@@ -37,7 +32,9 @@
   height: 100%;
   object-fit: cover;
   background: #222;
+  scroll-behavior: smooth;
 }
+
 .reel-content {
   position: absolute;
   bottom: 0;
@@ -76,27 +73,30 @@
 .reel-btn:hover {
   background-color: #e03e00;
 }
+
+/* -------- Scrollbar Hidden (like TikTok) -------- */
+.reels-page::-webkit-scrollbar {
+  display: none;
+}
+.reels-page {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* -------- Responsive Breakpoints -------- */
+
 @media (min-width: 768px) {
-  .reels-feed {
-    margin: 0 auto;
-  }
   .reel {
     width: 500px;
-    min-height: 100vh;
-  }
-  .reel-video {
     height: 100vh;
+  }
+  .reels-feed {
+    align-items: center;
   }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
-  .reels-feed {
-    margin: 0 auto;
-  }
   .reel {
-    min-height: 100vh;
-  }
-  .reel-video {
     width: 100vw;
     height: 100vh;
   }
@@ -105,39 +105,14 @@
   }
 }
 
-@media (min-width: 600px) {
-  .reel-content {
-    bottom: 0;
-  }
-}
-
 @media (max-width: 480px) {
-  .reels-feed {
-    width: 100vw;
-    padding: 0;
-  }
   .reel {
     width: 100vw;
     height: 100vh;
     border-radius: 0;
   }
-  .reel-video {
-    height: 100vh;
-  }
   .reel-content {
     bottom: 40px;
+    padding: 1rem;
   }
-}
-
-.reels-page::-webkit-scrollbar {
-  width: 8px;
-}
-
-.reels-page::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-}
-
-.reels-page::-webkit-scrollbar-track {
-  background-color: transparent;
 }
