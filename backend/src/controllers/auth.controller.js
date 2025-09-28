@@ -43,6 +43,7 @@ const registerUser = async (req, res) => {
       httpOnly: true,
       secure: isProduction,
       sameSite: isProduction ? "None" : "Lax",
+      path: "/",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
@@ -98,6 +99,7 @@ const loginUser = async (req, res) => {
       httpOnly: true,
       secure: isProduction,
       sameSite: isProduction ? "None" : "Lax",
+      path: "/",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
@@ -165,6 +167,7 @@ const foodPartnerRegister = async (req, res) => {
       httpOnly: true,
       secure: isProduction,
       sameSite: isProduction ? "None" : "Lax",
+      path: "/",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
@@ -219,6 +222,7 @@ const foodPartnerLogin = async (req, res) => {
       httpOnly: true,
       secure: isProduction,
       sameSite: isProduction ? "None" : "Lax",
+      path: "/",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
