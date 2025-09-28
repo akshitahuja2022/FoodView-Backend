@@ -12,6 +12,10 @@ const Reel = () => {
   const { setIsNavbar } = useContext(AuthContext);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -28,7 +32,7 @@ const Reel = () => {
           }
         });
       },
-      { threshold: [0, 0.25, 0.6, 0.9, 1] }
+      { threshold: 0.75 }
     );
 
     videoRefs.current.forEach((vid) => observer.observe(vid));
@@ -64,9 +68,10 @@ const Reel = () => {
               ref={setVideoRef(item._id)}
               className="reel-video"
               data-src={item.video}
-              preload="none"
+              preload="metadata"
               muted
               playsInline
+              loading="lazy"
               loop
             />
 
